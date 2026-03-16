@@ -1,6 +1,6 @@
 ---
 name: springboot4-ddd-standard-scaffold
-description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标准脚手架（dao/facade/web），整合 MyBatis-Plus、fastjson2、Lombok、Apache Commons 与默认 MySQL，并按 DDD 约束组织代码；当用户要求搭建或完善 SpringBoot4 后端标准框架、多模块项目、统一父 POM 依赖管理时使用。
+description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标准脚手架（dao/facade/web），整合 MyBatis-Plus、fastjson2、Lombok、Apache Commons 与默认 MySQL，并按 DDD 约束组织代码，且 HTTP API 默认统一使用 POST；当用户要求搭建或完善 SpringBoot4 后端标准框架、多模块项目、统一父 POM 依赖管理或统一接口封装规范时使用。
 ---
 
 # 目标
@@ -15,6 +15,9 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - 严格执行 DDD 分层边界
 - 基础组件包含 `fastjson2`、`lombok`、`commons-lang3`、`commons-collections4`
 - 未指定数据库时默认 `MySQL`
+- HTTP API 默认统一使用 `POST`
+- Java 基础包名必须由用户明确提供
+- `groupId` 优先基于用户确认后的包名确定
 - 父 `pom.xml` 统一管理版本、插件和打包策略
 
 # 执行流程
@@ -22,10 +25,13 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 1. 收集最小上下文
 
 - 获取 `groupId`、`artifactId`、`base package`、服务名。
+- `base package` 为必填项。触发本 Skill 后，如果用户没有明确给出包名，必须先询问用户，例如：`请提供项目基础包名，例如 com.company.project`
+- 禁止根据 `groupId`、`artifactId` 自动推导 `base package`
+- 在 `base package` 未确认前，禁止继续输出父 `pom.xml`、模块结构和代码骨架
+- 若用户未单独指定 `groupId`，默认令 `groupId = base package`
+- 若用户单独指定了 `groupId`，仍需先确认 `base package`，再继续生成项目
 - 未提供时使用默认值：
-  - `groupId`: `com.example`
   - `artifactId`: `demo-backend`
-  - `base package`: `${groupId}.${artifactId 去掉中划线}`
 
 2. 建立 Maven 多模块骨架
 
@@ -60,7 +66,7 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
   - `interceptor`
   - `common`（统一返回体、错误码、上下文）
 
-4. 固化依赖与版本管理
+4. 固化依赖与版本管理 
 
 - 在父 POM 的 `dependencyManagement` 统一管理：
   - `spring-boot-dependencies:4.0.1`
@@ -83,6 +89,7 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - 提供全局异常处理（`@RestControllerAdvice`）。
 - 提供拦截器与统一注册（`WebMvcConfigurer`）。
 - 提供统一响应模型（如 `ApiResponse<T>`）。
+- 控制器接口统一使用 `@PostMapping`，请求参数优先使用 `@RequestBody`
 - 配置 JSON 序列化（优先 fastjson2）。
 - 配置时间处理策略：
   - 统一时区（例如 `Asia/Shanghai`，可配置化）
@@ -124,6 +131,21 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - `lombok`：用于样板代码简化（`@Getter/@Setter/@Builder` 等）。
 - `commons-lang3`：字符串、对象判空等工具。
 - `commons-collections4`：集合判空、转换等工具。
+
+4. API 设计约束
+
+- HTTP 接口统一使用 `POST`，不默认生成 `GET`、`PUT`、`DELETE`、`PATCH`。
+- 查询、详情、分页、创建、修改、删除都按 `POST` 设计。
+- 控制器方法统一使用 `@PostMapping`。
+- 请求对象统一放在 `facade/model/request` 或 `dao/domain/dto`，并通过 `@RequestBody` 接收。
+- 返回对象统一使用 `ApiResponse<T>` 包装。
+- URI 命名采用动作式或业务语义式，例如：
+  - `/user/create`
+  - `/user/update`
+  - `/user/delete`
+  - `/user/query`
+  - `/user/page`
+- 只有用户明确要求健康检查、文件下载、回调验签等特殊接口时，才允许偏离统一 `POST` 规则。
 
 # 父 POM 最小模板（示意）
 
@@ -167,10 +189,12 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 
 每次执行本 Skill，至少产出以下内容：
 
+- 若用户未提供包名，先询问包名；包名未确认前，不输出父 `pom.xml` 和项目骨架
 - 完整模块目录树（dao/facade/web）
 - 父 `pom.xml`（含版本管理、插件管理、modules）
 - 各模块子 `pom.xml`
 - 启动类、示例 controller、service、异常处理、拦截器
+- 示例 controller 必须使用 `@PostMapping`
 - MyBatis-Plus 配置类与示例 mapper/repository
 - `application.yml`（默认 MySQL + 时间配置）
 
@@ -184,4 +208,9 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - 是否体现 DDD 职责边界与依赖方向
 - 是否集成 `fastjson2`、`lombok`、`commons-lang3`、`commons-collections4`
 - 未指定数据库时是否默认 MySQL
+- 是否所有默认 HTTP API 都使用 `POST`
+- 是否控制器示例统一使用 `@PostMapping + @RequestBody`
+- 是否已主动询问并确认用户的 `base package`
+- `groupId` 是否已使用用户确认后的 `base package` 或用户明确指定值
+- 在 `base package` 未确认前，是否停止输出父 `pom.xml` 与项目骨架
 - 父 POM 是否集中管理依赖版本与插件
