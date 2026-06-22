@@ -1,0 +1,4 @@
+interface:
+  display_name: "Self-Media Tech Thumbnail"
+  short_description: "Create bold Chinese AI-tech thumbnails."
+  default_prompt: "Create a 16:9 Chinese AI-tech thumbnail from my title or copy."

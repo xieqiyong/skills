@@ -1,0 +1,4 @@
+interface:
+  display_name: "NullByte 零号信号榜 / 拆解"
+  short_description: "把 AI 资讯、开源项目、技巧整理成有判断的榜单、单项目拆解稿和默认三图配图方案。"
+  default_prompt: "Use $nullbyte-signal-board 将这些素材整理成适合 @NullByte·零 发布的中文信号榜或单项目拆解稿；如果用户说出图，单项目默认生成三张图：封面推荐、安装开源地址、心得思考。"

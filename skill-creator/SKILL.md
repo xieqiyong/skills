@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Gemini CLI's capabilities with specialized knowledge, workflows, or tool integrations.
+description: 高效 Skill 创建指南。当用户想创建一个新 Skill（或更新已有 Skill），用专门的知识、工作流或工具集成来扩展命令行 Agent（如 Claude Code / Codex CLI / Cursor / Gemini CLI 等）的能力时使用本 Skill。
 ---
 
 # Skill Creator

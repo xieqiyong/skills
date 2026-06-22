@@ -10,7 +10,7 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - 使用 `Spring Boot 4.0.1`
 - 使用 `JDK 17`
 - 使用 `MyBatis-Plus`
-- 使用 Maven 多模块，包含 `dao`、`facade`、`web`
+- 使用 Maven 多模块，包含 `dao`、`facade`、`web`，但不仅仅是这3个模块，web1，web2，web3根据业务划分
 - `web` 模块包含配置、控制器、异常处理、拦截器、service（业务编排）
 - 严格执行 DDD 分层边界
 - 基础组件包含 `fastjson2`、`lombok`、`commons-lang3`、`commons-collections4`
@@ -132,7 +132,15 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - `commons-lang3`：字符串、对象判空等工具。
 - `commons-collections4`：集合判空、转换等工具。
 
-4. API 设计约束
+4. spring或者java注解使用规范
+- `@RestController`：用于控制器类，表示该类是一个 RESTful 控制器。
+- `@RequestMapping`：用于控制器方法，指定请求的 URL 路径和 HTTP 方法。
+- `@PostMapping`：用于控制器方法，表示该方法处理 HTTP POST 请求。
+- `@RequestBody`：用于控制器方法参数，表示该参数从请求体中获取数据。
+- `@RestControllerAdvice`：用于全局异常处理
+- `@Autowired`：用于自动注入依赖的组件。service层尽量不要使用构造注入
+
+5. API 设计约束
 
 - HTTP 接口统一使用 `POST`，不默认生成 `GET`、`PUT`、`DELETE`、`PATCH`。
 - 查询、详情、分页、创建、修改、删除都按 `POST` 设计。
@@ -198,13 +206,17 @@ description: 基于 Spring Boot 4.0.1 + JDK 17 + Maven 多模块生成后端标�
 - MyBatis-Plus 配置类与示例 mapper/repository
 - `application.yml`（默认 MySQL + 时间配置）
 
+# 增加文件目录
+- `docs` 目录，用于存放项目文档，例如：项目进度表，每次做完需求需要更新此文档
+
+
 # 自检清单
 
 输出前必须逐项核对：
 
 - 是否明确 `Spring Boot 4.0.1` 与 `JDK 17`
 - 是否包含 `MyBatis-Plus`
-- 是否为 Maven 多模块且包含 `dao/facade/web`
+- 是否为 Maven 多模块且包含 `dao/facade/web1/web2/web3/`
 - 是否体现 DDD 职责边界与依赖方向
 - 是否集成 `fastjson2`、`lombok`、`commons-lang3`、`commons-collections4`
 - 未指定数据库时是否默认 MySQL

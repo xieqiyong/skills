@@ -1,0 +1,4 @@
+interface:
+  display_name: "NullByte 技术图解板"
+  short_description: "把技术概念、流程和状态变化整理成可爱易懂的原理图、流程图和对比图。"
+  default_prompt: "Use $nullbyte-explainer-board 把这些素材整理成适合 @NullByte·零 发布的中文技术图解板；默认输出一张可爱手绘风的工作原理图、流程图或对比图，并在需要时直接出图。"

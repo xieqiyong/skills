@@ -1,0 +1,4 @@
+interface:
+  display_name: "NullByte 技巧手册"
+  short_description: "把命令、技巧、配置说明整理成适合头条发布的橙色系多页知识卡和技巧手册。"
+  default_prompt: "Use $nullbyte-tip-manual 将这些技巧内容整理成适合 @NullByte·零 发布的头条知识卡，按橙色系命令手册风格排版，并给出配图或直接出图。"
