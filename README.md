@@ -32,9 +32,7 @@
 | 目录 | Skill 名称 | 简介 |
 | --- | --- | --- |
 | [`aihot`](./aihot) | aihot | 中文 AI 资讯查询：一句话拿到每日 AI HOT 日报与全部动态，无需配置任何 API Key / MCP。 |
-| [`ai-open-source`](./ai-open-source) | 今日分享 AI 开源项目 v3 | 事实核验 + 主标题 + 文案 + 标签 + **4 张独立竖版海报**，暖橙编辑风。 |
-| [`one-github-ai`](./one-github-ai) | 今日分享 AI 开源项目 v2 | 选题、出图、标题、文案、标签**一次性完整交付**。 |
-| [`hot-command`](./hot-command) | 今日分享 AI 开源项目 | 公众号贴图套图：**4 图 + 约 100 字**发布文案。 |
+| [`ai-open-source`](./ai-open-source) | 今日分享 AI 开源项目 | 事实核验 + 主标题 + 文案 + 标签 + **4 张独立竖版海报**，暖橙编辑风。 |
 | [`nullbyte-explainer-board`](./nullbyte-explainer-board) | Nullbyte 技术图解板 | 可爱手绘白板风：原理图 / 流程图 / 架构图 / 状态图 / 对比图。 |
 | [`nullbyte-signal-board`](./nullbyte-signal-board) | Nullbyte 信号榜 | 榜单式策展与单项目拆解：AI 资讯 / 开源 / 技巧，榜单页 + 详情页。 |
 | [`nullbyte-tip-manual`](./nullbyte-tip-manual) | Nullbyte 技巧手册 | 适合头条发布的中文技巧手册、命令速查表和多页知识卡。 |
