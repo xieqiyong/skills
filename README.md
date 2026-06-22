@@ -14,7 +14,7 @@
 
 本仓库把作者日常**真实在用**的 20 个 Skill 沉淀下来，统一为标准 `SKILL.md` 格式，开箱即用。覆盖四条主线：
 
-- 🎨 **自媒体内容创作与出图**：AI 资讯、开源项目分享、技术图解、科普漫画、封面图
+- 🎨 **自媒体内容创作与出图**：AI 资讯、热点选题、去 AI 味写作、开源项目分享、技术图解、科普漫画、封面图
 - 🛠️ **开发脚手架与代码规范**：Spring Boot 4 后端、Nuxt 3 前端、全栈编排、Java 代码规范
 - 📄 **文档设计与规范**：技术方案文档、Skill 文档优化、产品规则
 - ⚙️ **Skill 工程与元技能**：如何从 0 创建一个规范的 Skill
@@ -32,6 +32,8 @@
 | 目录 | Skill 名称 | 简介 |
 | --- | --- | --- |
 | [`aihot`](./aihot) | aihot | 中文 AI 资讯查询：一句话拿到每日 AI HOT 日报与全部动态，无需配置任何 API Key / MCP。 |
+| [`hot-topic`](./hot-topic) | 自媒体热点选题计划 | 基于真实热点事件生成结构化每日选题计划（事件背景 + 推荐标题 + 写作角度），全类目支持。 |
+| [`generate-article`](./generate-article) | 去 AI 味写作 | 控制事实密度、段落节奏与表达润色，提供克制、真人感的写作约束，规避平台 AI 检测限流。 |
 | [`ai-open-source`](./ai-open-source) | 今日分享 AI 开源项目 | 事实核验 + 主标题 + 文案 + 标签 + **4 张独立竖版海报**，暖橙编辑风。 |
 | [`nullbyte-explainer-board`](./nullbyte-explainer-board) | Nullbyte 技术图解板 | 可爱手绘白板风：原理图 / 流程图 / 架构图 / 状态图 / 对比图。 |
 | [`nullbyte-signal-board`](./nullbyte-signal-board) | Nullbyte 信号榜 | 榜单式策展与单项目拆解：AI 资讯 / 开源 / 技巧，榜单页 + 详情页。 |
