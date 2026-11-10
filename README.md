@@ -25,7 +25,7 @@
 
 ## 📂 Skills 索引
 
-共 **20** 个 Skill，按用途分为 4 类。点击目录名进入对应文件夹查看完整 `SKILL.md`。
+共 **21** 个 Skill，按用途分为 4 类。点击目录名进入对应文件夹查看完整 `SKILL.md`。
 
 ### 🎨 一、自媒体内容创作与出图（10 个）
 
@@ -60,12 +60,13 @@
 | [`llm-doc-china-skills`](./llm-doc-china-skills) | Skill 文档格式优化器 | 优化 Skill 文档格式与结构，让 LLM 更易理解、更易触发、执行更准确。 |
 | [`product-rules`](./product-rules) | 产品规则 Skill | 项目级业务约束、交付边界与协作规则的统一沉淀。 |
 
-### ⚙️ 四、Skill 工程与元技能（2 个）
+### ⚙️ 四、Skill 工程与元技能（3 个）
 
 | 目录 | Skill 名称 | 简介 |
 | --- | --- | --- |
 | [`skill-creator`](./skill-creator) | Skill 创建指南 | 高效 Skill 创建指南：从 0 到 1 写出一个规范、好用、易触发的 Skill。 |
 | [`digital-employee`](./digital-employee) | 员工 Skill 创建者 | 为特定项目创建具备代码架构认知与排障能力的「员工 Skill」。 |
+| [`ask-shiheng`](./ask-shiheng) | 编码前架构分诊 | 写代码前强制架构分诊：按 [目的/过程/结果] 三维相空间把模块分诊为固态/液晶态/受控液态/无界气态/制度性晶体，输出一页《物态架构处方单》（PHASE_SPEC.md），从根源阻断「万物皆 Agent」的物态错配；中英双语，CC BY-SA 4.0。 |
 
 ---
 
